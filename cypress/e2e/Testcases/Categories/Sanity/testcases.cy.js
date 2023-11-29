@@ -1,5 +1,5 @@
 
-describe('Category Suite', () => {
+describe('Category ', () => {
     it('Verify if user can slide to more categories clicking the forward arrow', () => {
       cy.visit('https://chaldal.com/')
       cy.get('.headerContainer > .scrollRight').should('be.enabled')
@@ -13,7 +13,7 @@ describe('Category Suite', () => {
     })
   }) 
 
-  describe('Category Suite', () => {
+  describe('Category ', () => {
     it('Verify if user can slide back categories clicking the backward arrow', () => {
       cy.visit('https://chaldal.com/')
       cy.get('.headerContainer > .scrollLeft').should('be.enabled')
@@ -24,7 +24,7 @@ describe('Category Suite', () => {
     })
   }) 
 
-  describe('Category Suite', () => {
+  describe('Category ', () => {
     it('Verify if all the items related to the sub category has essential details and picture of the each item', () => {
       cy.visit('https://chaldal.com/')
       cy.get('[href="/fruits-vegetables"] > .categoryBox').click()
@@ -35,7 +35,7 @@ describe('Category Suite', () => {
     })
   })
 
-  describe('Category Suite', () => {
+  describe('Category ', () => {
     it('Verify if user is able to see the full details of the item', () => {
       cy.visit('https://chaldal.com/')
       cy.get('[href="/fruits-vegetables"] > .categoryBox').click()
@@ -48,7 +48,7 @@ describe('Category Suite', () => {
     })
   }) 
 
-  describe('Category Suite', () => {
+  describe('Category ', () => {
     it('Verify if user is able to see add to shopping bag on mouse hover', () => {
       cy.visit('https://chaldal.com/')
       cy.get('[href="/fruits-vegetables"] > .categoryBox').click()
@@ -61,7 +61,7 @@ describe('Category Suite', () => {
     })
   }) 
 
-  describe('Add to Cart Suite', () => {
+  describe('Add to Cart', () => {
     it('Check add to cart without adding item!', () => {
       cy.visit('https://chaldal.com/')
       cy.get('.stickyHeader').click()
@@ -69,7 +69,7 @@ describe('Category Suite', () => {
     })
   })
 
-  describe('Add to Cart Suite', () => {
+  describe('Add to Cart', () => {
     it('Verify that user can select desired quantity of an item before adding to the cart', () => {
       cy.visit('https://chaldal.com/')
       cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > section:nth-child(1) > div:nth-child(2) > div:nth-child(1) > a:nth-child(1) > div:nth-child(1)").click()
@@ -80,7 +80,7 @@ describe('Category Suite', () => {
     })
   })
 
-  describe('Add to Cart Suite', () => {
+  describe('Add to Cart', () => {
     it('Verify that user can add multiple items on the cart', () => {
       cy.visit('https://chaldal.com/')
       cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > section:nth-child(1) > div:nth-child(2) > div:nth-child(1) > a:nth-child(1) > div:nth-child(1)").click()
@@ -146,7 +146,7 @@ describe('Category Suite', () => {
   })
 
 
-     describe('Add to Cart', () => {
+     describe('Navbar', () => {
       it('Verify that user is displayed available locations or cities of delivery ', () => {
         cy.visit('https://chaldal.com/')
         cy.get(".area.citySelectionArea").click()
@@ -157,7 +157,7 @@ describe('Category Suite', () => {
       })
     })
 
-    describe('Add to Cart', () => {
+    describe('Navbar', () => {
       it('Verify that selected city is visible to the user ', () => {
         cy.visit('https://chaldal.com/')
         cy.get(".area.citySelectionArea").click()
@@ -165,6 +165,17 @@ describe('Category Suite', () => {
          cy.get(".citySelectionPage")
          cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3)").click()
          cy.get("#citySelectionLink").should('be.visible') 
+     
+      })
+    })
+
+    describe('Navbar', () => {
+      it('Verify if clicking on the three line menu icon in the navbar collapses the sidebar ', () => {
+        cy.visit('https://chaldal.com/')
+        cy.get(".hamburgerMenu.hidden-xs").click() 
+        cy.get(".topMenu.vertical").should('not.be.visible')
+
+        
      
       })
     })

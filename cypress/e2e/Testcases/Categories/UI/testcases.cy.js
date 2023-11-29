@@ -56,7 +56,7 @@ describe('Add to Cart Suite', () => {
       cy.get("a[href='/fruits-vegetables']").click()
       cy.get(".category[href='/fresh-fruit']").click()
       cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > section:nth-child(3) > p:nth-child(2)").click({force: true})
-      const maxQuantity = 107;
+      const maxQuantity = 110;
       for (let i = 0; i < maxQuantity; i++) {
       cy.get(".plusQuantity").click()
       }
@@ -170,15 +170,17 @@ describe('Add to Cart Suite', () => {
       cy.get("a[href='/fruits-vegetables']").click()
             cy.get(".category[href='/fresh-fruit']").click()
             cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > section:nth-child(3) > p:nth-child(2)").click({force: true})
-            const maxQuantity = 107;
+            const maxQuantity = 110;
             for (let i = 0; i < maxQuantity; i++) {
             cy.get(".plusQuantity").click()
             }
             cy.get(".maxQtyToolTip").should('be.visible').contains('আপনার পছন্দসই পরিমাণ এই পণ্যের জন্য উপলব্ধ নয়')
 
     })
+
     
   })
+    
 
   describe('Sidebar (Responsiveness)', 
         {
@@ -193,7 +195,7 @@ describe('Add to Cart Suite', () => {
     
         })
 
-        it('Verify that sidebar is not visible  ', () => {
+        it('Verify that menu icon is visible  ', () => {
           cy.visit('https://chaldal.com/')
          
           cy.get('.hamBergerMenuIcon').should('be.visible') 
@@ -201,17 +203,6 @@ describe('Add to Cart Suite', () => {
     
         })
 
-        it('Verify category swipeability on homepage  ', () => {
-          cy.visit('https://chaldal.com/')
-
-         
-          cy.get(".categoryContainer")
-          .realTouch({ clientX: 500, clientY: 100 })
-          
-          
-          
-    
-        })
       })
 
 

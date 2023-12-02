@@ -1,4 +1,4 @@
-describe('Homepage category item darken on hover', () => {
+describe('Homepage Category', () => {
   it('Verify hovering on the items darkens the item picture', () => {
     cy.visit('https://chaldal.com/')
     cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > section:nth-child(1) > div:nth-child(2) > div:nth-child(1) > a:nth-child(1) > div:nth-child(1)").click()
@@ -12,7 +12,7 @@ describe('Homepage category item darken on hover', () => {
 
 
 
-describe('Homepage category item details option visibility', () => {
+describe('Homepage Category ', () => {
   it('Verify hovering on the items displays the details option', () => {
     cy.visit('https://chaldal.com/')
     cy.get('[href="/fruits-vegetables"] > .categoryBox').click()
@@ -26,7 +26,7 @@ describe('Homepage category item details option visibility', () => {
 }) 
 
 
-// describe('Homepage category item state change of add to bag button', () => {
+// describe('Homepage Category ', () => {
 //   it('Verify that add to bag button exhibits different state upon hovering', () => {
 //     cy.visit('https://chaldal.com/')
 //     cy.get('[href="/fruits-vegetables"] > .categoryBox').click()
@@ -41,7 +41,7 @@ describe('Homepage category item details option visibility', () => {
 //   })
 // }) 
 
-describe('Add to Cart Suite', () => {
+describe('Add to Cart ', () => {
   it('Verify that shopping bag is empty message is displayed when add to cart icon is clicked without adding any item', () => {
     cy.visit('https://chaldal.com/')
     cy.get('.stickyHeader').click()

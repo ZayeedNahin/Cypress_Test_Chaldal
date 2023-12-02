@@ -1,5 +1,5 @@
 
-describe('Category ', () => {
+describe('Homepage Category', () => {
     it('Verify if user can slide to more categories clicking the forward arrow', () => {
       cy.visit('https://chaldal.com/')
       cy.get('.headerContainer > .scrollRight').should('be.enabled')
@@ -13,7 +13,7 @@ describe('Category ', () => {
     })
   }) 
 
-  describe('Category ', () => {
+  describe('Homepage Category ', () => {
     it('Verify if user can slide back categories clicking the backward arrow', () => {
       cy.visit('https://chaldal.com/')
       cy.get('.headerContainer > .scrollLeft').should('be.enabled')
@@ -24,7 +24,7 @@ describe('Category ', () => {
     })
   }) 
 
-  describe('Category ', () => {
+  describe('Homepage Category ', () => {
     it('Verify if all the items related to the sub category has essential details and picture of the each item', () => {
       cy.visit('https://chaldal.com/')
       cy.get('[href="/fruits-vegetables"] > .categoryBox').click()
@@ -35,7 +35,7 @@ describe('Category ', () => {
     })
   })
 
-  describe('Category ', () => {
+  describe('Homepage Category', () => {
     it('Verify if user is able to see the full details of the item', () => {
       cy.visit('https://chaldal.com/')
       cy.get('[href="/fruits-vegetables"] > .categoryBox').click()
@@ -48,7 +48,7 @@ describe('Category ', () => {
     })
   }) 
 
-  describe('Category ', () => {
+  describe('Homepage Category ', () => {
     it('Verify if user is able to see add to shopping bag on mouse hover', () => {
       cy.visit('https://chaldal.com/')
       cy.get('[href="/fruits-vegetables"] > .categoryBox').click()

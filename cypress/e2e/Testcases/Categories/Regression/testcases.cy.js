@@ -25,7 +25,7 @@ describe('Homepage Sub-category Relevancy', () => {
     })
 })  
 
-describe('Add to Cart Suite', () => {
+describe('Add to Cart ', () => {
   it('Verify that user can select desired quantity of an item before adding to the cart', () => {
     cy.visit('https://chaldal.com/')
     cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > section:nth-child(1) > div:nth-child(2) > div:nth-child(1) > a:nth-child(1) > div:nth-child(1)").click()
@@ -36,7 +36,7 @@ describe('Add to Cart Suite', () => {
   })
 })
 
-describe('Add to Cart Suite', () => {
+describe('Add to Cart ', () => {
   it('Verify that user can add multiple items on the cart', () => {
     cy.visit('https://chaldal.com/')
     cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > section:nth-child(1) > div:nth-child(2) > div:nth-child(1) > a:nth-child(1) > div:nth-child(1)").click()

@@ -271,8 +271,8 @@ describe('Add to Cart', () => {
         })
       })
 
-      describe('Sidebar', () => {
-        it('Verify on hovering the mouse over the item shows the details option', () => {
+      describe('Navbar', () => {
+        it('Verify if clicking on the chaldal icon navigates back to homepage', () => {
           cy.visit('https://chaldal.com/')
           cy.get("a[href='/fruits-vegetables']").click()
           cy.get(".category[href='/fresh-fruit']").click()

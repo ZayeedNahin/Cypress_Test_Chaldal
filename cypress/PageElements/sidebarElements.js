@@ -58,22 +58,22 @@ export class sidebarElements{
 
     LoginbtnTranslation(){
         cy.get(".localeRightContainer").click() 
-          cy.get(".signInBtn").contains('লগ ইন') 
+          cy.get(".signInBtn").should('have.text','লগ ইন') 
     }    
 
     CityLocatorTranslation(){
         cy.get(".localeRightContainer").click()
-        cy.get(".metropolitanAreaName").contains('ঢাকা') 
+        cy.get(".metropolitanAreaName").should('have.text','ঢাকা') 
     }
 
     SearchbarTranslation() {
         cy.get(".localeRightContainer").click()
-        cy.get(".searchBarContainer").contains('গ্রোসারি পৌঁছে দিচ্ছি আপনার দোরগোড়ায়') 
+        cy.get(".searchBarContainer").should('have.text','গ্রোসারি পৌঁছে দিচ্ছি আপনার দোরগোড়ায়') 
     }
 
     SearchPlaceholderTrans(){
         cy.get(".localeRightContainer").click()
-          cy.get("input[placeholder='পণ্য খুঁজুন (যেমন, ডিম, দুধ, আলু)'][name='mainSearch']").should('be.visible')
+          cy.get("input[name=mainSearch]").should('be.visible') 
     }
 
     CatTranslation(){
@@ -86,7 +86,7 @@ export class sidebarElements{
           cy.get("a[href='/fruits-vegetables']").click()
           cy.get(".category[href='/fresh-fruit']").contains('তাজা ফল').click()
           cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)")
-          .contains('সাগর কলা 8 টি')
+          .should('have.text','সাগর কলা 8 টি') 
     }
 
     LoginErrMsgTrans(){

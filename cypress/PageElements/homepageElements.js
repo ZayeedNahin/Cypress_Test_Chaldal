@@ -1,31 +1,33 @@
 export class homepageElements{
     SelectCatHomepage(){
-        cy.xpath("//a[@href='/meat-fish']").click()
+      cy.get(".categoryContainer").should('be.visible') 
+      cy.get('[href="/meat-fish"] > .categoryBox').click() 
     }
 
     SubCatVisible(){
-        cy.xpath("//a[@href='/meat-fish']").click()
-        cy.xpath("//div[@class='everythingElseWrapper unauthed']").click()
+      cy.get('[href="/meat-fish"] > .categoryBox').click()
+      cy.get(".bodyWrapper").should('be.visible') 
+      // cy.get('body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > a:nth-child(1) > div:nth-child(1) > div:nth-child(2)').click()
     }
 
     RelevantSubCat(){
-      cy.xpath("//section[@id='delivery-info']//div[@class='mainTile']").click()
-      cy.xpath("//div[@class='category-blocks-wrapper']//a[1]").click()
-      cy.xpath("//section[@class='bodyTable']").should('be.visible') 
+      cy.get('[href="/meat-fish"] > .categoryBox').click()
+      cy.get('body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > a:nth-child(1) > div:nth-child(1) > div:nth-child(2)').click()
+      cy.get('.productPane').should('be.visible') 
     }
 
     SlideCatForward(){
-        cy.get('.headerContainer > .scrollRight').should('be.enabled')
+      cy.get('.headerContainer > .scrollRight').should('be.enabled')
       for(let n=0; n< 3; n++){
         cy.get('.headerContainer > .scrollRight').click()
       }
     }
 
     SlideCatBackward(){
-        cy.get('.headerContainer > .scrollLeft').should('be.enabled')
-        for(let n=0; n< 3; n++){
-          cy.get('.headerContainer > .scrollLeft').click()
-        }
+      cy.get('.headerContainer > .scrollLeft').should('be.enabled')
+      for(let n=0; n< 3; n++){
+        cy.get('.headerContainer > .scrollLeft').click()
+      }
     }
 
     ItemDetailPic() {

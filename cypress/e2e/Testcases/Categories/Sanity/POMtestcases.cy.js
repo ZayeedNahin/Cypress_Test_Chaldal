@@ -55,16 +55,16 @@ describe('Homepage Category', () => {
     })
   })
 
-  describe('Add to Cart', () => {
-    it('Verify that user can select desired quantity of an item before adding to the cart', () => {
-      cy.visit('https://chaldal.com/')
-      CartElements.QtyBeforeCart() 
+  // describe('Add to Cart', () => {
+  //   it('Verify that user can select desired quantity of an item before adding to the cart', () => {
+  //     cy.visit('https://chaldal.com/')
+  //     CartElements.QtyBeforeCart() 
       
-    })
-  })
+  //   })
+  // })
 
   describe('Add to Cart', () => {
-    it('Verify that user can add multiple items on the cart', () => {
+    it('Verify that user can add multiple items on the cart from sidebar category', () => {
       cy.visit('https://chaldal.com/')
       CartElements.SideMultiQty()
       

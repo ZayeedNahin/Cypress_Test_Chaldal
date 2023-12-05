@@ -246,7 +246,7 @@ describe('Add to Cart', () => {
   })
 
   describe('Sidebar', () => {
-    it('Verify on hovering the mouse over the item shows the details option', () => {
+    it('Verify on hovering the mouse over the item darkens', () => {
       cy.visit('https://chaldal.com/')
       cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > ul:nth-child(4) > li:nth-child(6) > div:nth-child(2) > a:nth-child(1)").click()
       cy.get(".category[href='/male-care']").click()
@@ -272,12 +272,12 @@ describe('Add to Cart', () => {
       })
 
       describe('Sidebar', () => {
-        it('Verify on hovering the mouse over the item shows the details option', () => {
+        it('Verify on clicking the icon redirects to homepage', () => {
           cy.visit('https://chaldal.com/')
           cy.get("a[href='/fruits-vegetables']").click()
           cy.get(".category[href='/fresh-fruit']").click()
-          .wait(2000) 
           cy.get(".logo.hidden-xs").click() 
+          cy.get("#page").should('be.visible') 
          
         })
       })

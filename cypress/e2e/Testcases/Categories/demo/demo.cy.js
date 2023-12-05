@@ -1,4 +1,4 @@
-import { pageElements } from "../../../../PageElements/pageElements"
+import { pageElements } from "./pageElements"
 
 const PageElements = new pageElements
 describe('Homepage Sub-category', () => {

@@ -86,7 +86,7 @@ describe('Homepage Category', () => {
   })
 
   describe('Add to Cart', () => {
-    it('Verify that by clicking plus sign increases the quantity on cart ', () => {
+    it('Verify that by clicking plus sign increases the quantity  ', () => {
       cy.visit('https://chaldal.com/')
       CartElements.PlusSignQtyIncr() 
       
@@ -94,7 +94,7 @@ describe('Homepage Category', () => {
   })
 
   describe('Add to Cart', () => {
-    it('Verify that by clicking minus sign decreases the quantity on cart ', () => {
+    it('Verify that by clicking minus sign decreases the quantity  ', () => {
       cy.visit('https://chaldal.com/')
       CartElements.MinusSignQtyDecr() 
       

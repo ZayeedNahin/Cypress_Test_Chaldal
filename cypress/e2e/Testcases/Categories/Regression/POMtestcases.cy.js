@@ -161,9 +161,9 @@ describe('Add to Cart ', () => {
   })
 
   describe('Sidebar', () => {
-    it('Verify on hovering the mouse over the item shows the details option', () => {
+    it('Verify on hovering the mouse over the item darkens', () => {
       cy.visit('https://chaldal.com/')
-     SideBarElements.SideCatHoverDetails() 
+     SideBarElements.SideCatHoverItemDarken()
     })
   })
 
@@ -175,8 +175,8 @@ describe('Add to Cart ', () => {
   })
 
   describe('Sidebar', () => {
-    it('Verify on hovering the mouse over the item shows the details option', () => {
+    it('Verify on clicking the icon redirects to homepage', () => {
       cy.visit('https://chaldal.com/')
-     SideBarElements.SideCatHoverDetails() 
+     SideBarElements.RedirectHomepage() 
     })
   }) 

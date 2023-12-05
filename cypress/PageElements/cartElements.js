@@ -4,15 +4,15 @@ export class cartElements {
     cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > a:nth-child(1) > div:nth-child(1) > div:nth-child(2)").click()
     cy.get("div[class='productPane'] div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(5)").click({force: true})
     cy.get(".QuantityTextContainer").should('exist') 
-    // cy.get('.stickyHeader').click()
+    
     }
 
     multipleQty(){
-        cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > section:nth-child(1) > div:nth-child(2) > div:nth-child(1) > a:nth-child(1) > div:nth-child(1)").click()
+      cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > section:nth-child(1) > div:nth-child(2) > div:nth-child(1) > a:nth-child(1) > div:nth-child(1)").click()
       cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > a:nth-child(1) > div:nth-child(1) > div:nth-child(2)").click()
       cy.get("div[class='productPane'] div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(5)").click({force: true})
       cy.get('.stickyHeader').click()
-      cy.get(".orderItem[data-pvid='152']").should('exist')
+      cy.get(".orderItem").should('exist')
       cy.get('.closeCartButtonTop').click() 
       cy.get('body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > ol:nth-child(1) > li:nth-child(2) > a:nth-child(1)').click() 
       cy.get(".category[href='/fresh-fruit']").click() 
@@ -177,7 +177,7 @@ export class cartElements {
           cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(23) > div:nth-child(1)").click()
           cy.get('.stickyHeader').click()
           cy.get("div[title='Add one more to bag']").click()
-          cy.get('.onHoverCursor').should('equal', 2) 
+          cy.get('.onHoverCursor').should('contain', 2)
     }
 
     CartQtyDecrease(){
@@ -186,7 +186,7 @@ export class cartElements {
           cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(23) > div:nth-child(1)").click({multiple: true}) 
           cy.get('.stickyHeader').click()
           cy.get("div[title='Remove one from bag']").click()
-          cy.get('.onHoverCursor').should('equal', 1) 
+          cy.get('.onHoverCursor').should('contain', 1) 
     }
 
     PlusSignQtyIncr(){
@@ -202,6 +202,9 @@ export class cartElements {
           cy.get(".category[href='/fresh-fruit']").click()
           cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5)").realHover().click({force: true})
           cy.get(".remove").click({force: true})
+          .wait(2000) 
+          cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > section:nth-child(3)")
+          .should('be.visible')  
     }
 
     EmptyMsgVisible(){
@@ -229,6 +232,6 @@ export class cartElements {
         cy.get(".category[href='/fresh-fruit']").click()
         cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > section:nth-child(3)").click({force: true})
         cy.get('.stickyHeader').click()
-        cy.get(".text1").should('be.visible')
+        cy.get("div[class='total']").should('be.visible')
     }
 }

@@ -37,10 +37,10 @@ export class homepageElements{
     }
 
     FullDetailsItem(){
-        cy.get('[href="/fruits-vegetables"] > .categoryBox').click()
+      cy.get('[href="/fruits-vegetables"] > .categoryBox').click()
       cy.get('.category-links-wrapper > [href="/fresh-vegetable"]').click() 
       cy.get('body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)').trigger('mouseover')
-      cy.contains('Details').click({force:true}) 
+      .contains('Details').click({force:true}) 
     } 
 
     ItemHoverAddtoBag(){

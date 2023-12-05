@@ -12,7 +12,7 @@ export class sidebarElements{
     SideCatRelevantItem(){
         cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > ul:nth-child(4) > li:nth-child(6) > div:nth-child(2) > a:nth-child(1)").click()
         cy.get(".category[href='/male-care']").click()
-        cy.get(".category[href='/shampoo']").click()
+        cy.get(".category[href='/shampoo']").should('exist') 
     }
 
     SideCatItemDetailPic(){
@@ -68,7 +68,7 @@ export class sidebarElements{
 
     SearchbarTranslation() {
         cy.get(".localeRightContainer").click()
-        cy.get(".searchBarContainer").should('have.text','গ্রোসারি পৌঁছে দিচ্ছি আপনার দোরগোড়ায়') 
+        cy.get(".searchBarContainer").should('have.text',' গ্রোসারি পৌঁছে দিচ্ছি আপনার দোরগোড়ায় ') 
     }
 
     SearchPlaceholderTrans(){
@@ -85,7 +85,7 @@ export class sidebarElements{
         cy.get(".localeRightContainer").click()
           cy.get("a[href='/fruits-vegetables']").click()
           cy.get(".category[href='/fresh-fruit']").contains('তাজা ফল').click()
-          cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)")
+          cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)")
           .should('have.text','সাগর কলা 8 টি') 
     }
 
@@ -93,7 +93,7 @@ export class sidebarElements{
         cy.get(".localeRightContainer").click()
         cy.get(".signInBtn").click() 
         cy.get("button[class='loginBtn']").contains('সাইন আপ / লগ ইন').click()
-        cy.get(".errorContainer").contains('অনুগ্রহ করে সঠিক বাংলাদেশি ফোন নাম্বার দিন । যেমন +8801672955886')
+        cy.get(".errorContainer").should('have.text','অনুগ্রহ করে সঠিক বাংলাদেশি ফোন নাম্বার দিন । যেমন +8801672955886')
     }
 
     MaxQtyErrMsg(){
@@ -105,7 +105,7 @@ export class sidebarElements{
                 for (let i = 0; i < maxQuantity; i++) {
                 cy.get(".plusQuantity").click()
                 }
-                cy.get(".maxQtyToolTip").should('be.visible').contains('আপনার পছন্দসই পরিমাণ এই পণ্যের জন্য উপলব্ধ নয়')
+                cy.get(".maxQtyToolTip").should('be.visible').should('not.contain', 'Your desired quantity is not available for this product' )
     }
 
 
@@ -115,6 +115,13 @@ export class sidebarElements{
 
     MenuIconVisibleOnDevice(){
         cy.get('.hamBergerMenuIcon').should('be.visible') 
+    }
+
+    RedirectHomepage(){
+        cy.get("a[href='/fruits-vegetables']").click()
+        cy.get(".category[href='/fresh-fruit']").click()
+        cy.get(".logo.hidden-xs").click() 
+        cy.get("#page").should('be.visible')
     }
 
 

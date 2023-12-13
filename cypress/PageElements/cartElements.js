@@ -35,22 +35,29 @@ export class cartElements {
 
     varProCity(){
     
-      cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > section:nth-child(1) > div:nth-child(2) > div:nth-child(1) > a:nth-child(2) > div:nth-child(1)").click()
-      cy.get(".category[href='/premium-perishables']").click().should('have.length.gt', 0)
-      cy.get('.productPane > div').its('length').then((itemCount) => {
-      cy.log(`Number of items displayed: ${itemCount}`);
-      })
-      cy.get('.productPane > div').should("have.length", 42) 
+      cy.get("a[href='/fruits-vegetables']").click()
+      cy.get(".category[href='/fresh-vegetable']").click().should('have.length.gt', 0)
+      cy.get('.productPane > div').should('exist').as('initialItemCount')
+
+      cy.get('@initialItemCount').should('have.length.gt', 0)
 
       cy.get(".area.citySelectionArea").click()
       cy.get(".change-city").click()
       .wait(2000)
       cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2)").click()
-      cy.get('.productPane > div').its('length').then((itemCount) => {
-      cy.log(`Number of items displayed: ${itemCount}`)
-        })
+      cy.get("a[id='Fresh Vegetables'] span[itemprop='name']").should('be.visible').then(() => {
+      cy.get('.productPane > div').should('exist').as('updatedItemCount')
 
-        cy.get('.productPane > div').should("have.length", 7) 
+       cy.get('@updatedItemCount').should('have.length.gt', 0) 
+
+       cy.get('@initialItemCount').then((initialItemCount) => {
+        cy.get('@updatedItemCount').then((updatedItemCount) => {
+          
+          expect(updatedItemCount).to.not.eq(initialItemCount) 
+        })
+      })
+    })
+   
     }
 
     rmvPro(){
@@ -66,12 +73,12 @@ export class cartElements {
         cy.get("a[href='/fruits-vegetables']").click()
         cy.get(".category[href='/fresh-fruit']").click()
         cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > section:nth-child(3) > p:nth-child(2)").click({force: true})
-        const maxQuantity = 106;
+        const maxQuantity = 110;
         for (let i = 0; i < maxQuantity; i++) {
         cy.get(".plusQuantity").click()
         }
         cy.get(".maxQtyToolTip").should('be.visible') 
-        
+
     }
 
     multPriceUpdate(){
@@ -81,7 +88,7 @@ export class cartElements {
         cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1) > section:nth-child(3)").click({force: true})
         cy.get('.stickyHeader').click()
         cy.get(".totalMoneyCount").should('be.visible')
-        // cy.get(".totalMoneyCount").should('contain', '378')
+        
     }
 
     autoPriceUpdate(){

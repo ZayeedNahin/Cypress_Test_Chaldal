@@ -44,9 +44,9 @@ describe('Homepage Category', () => {
   })
 
   describe('Add to Cart', () => {
-    it('Verify that add to cart icon is updated with number of item and total price  ', () => {
+    it('Verify that add to cart is updated with number of item and total price  ', () => {
       cy.visit('https://chaldal.com/')
-      CartElements.CartIconUpdate()
+      CartElements.AddToCartIconUpdate()
     })
   })
 

@@ -86,7 +86,7 @@ export class sidebarElements{
           cy.get("a[href='/fruits-vegetables']").click()
           cy.get(".category[href='/fresh-fruit']").contains('তাজা ফল').click()
           cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)")
-          .should('have.text','সাগর কলা 8 টি') 
+          .should('have.text','কলা চম্পা (খাবার জন্য প্রস্তুত) ৪ টি') 
     }
 
     LoginErrMsgTrans(){

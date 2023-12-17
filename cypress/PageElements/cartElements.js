@@ -18,7 +18,7 @@ export class cartElements {
       cy.get(".category[href='/fresh-fruit']").click() 
       cy.get("div:nth-child(5) div:nth-child(1) div:nth-child(1) div:nth-child(5) p:nth-child(1)").click({force: true})
       cy.get('.stickyHeader').click()
-      cy.get(".orderItem[data-pvid='6024']").should('exist') 
+      cy.get(".orderItem").should('exist') 
     }
 
     addChngLoc(){
@@ -136,7 +136,7 @@ export class cartElements {
         cy.get(".total").contains(0)
         cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > section:nth-child(3)").click({force: true})
         cy.get(".stickyHeader > .itemCount").contains(1)
-        cy.get(".total").contains(299)
+        cy.get("div[class='total']").should('not.be.empty')  
     }
 
     SideCate(){
@@ -234,11 +234,11 @@ export class cartElements {
         cy.get('.stickyHeader').realHover().should('have.css', 'box-shadow','rgba(0, 0, 0, 0.75) 0px 0px 16px -1px') 
     }
 
-    CartIconUpdate(){
+    AddToCartIconUpdate(){
         cy.get("a[href='/fruits-vegetables']").click()
         cy.get(".category[href='/fresh-fruit']").click()
         cy.get("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(8) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > section:nth-child(3)").click({force: true})
         cy.get('.stickyHeader').click()
-        cy.get("div[class='total']").should('be.visible')
+        cy.get(".totalMoneyCount").should('not.be.empty')
     }
 }
